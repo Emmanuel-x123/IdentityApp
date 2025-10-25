@@ -1,0 +1,46 @@
+.features-value {
+  background-color: #fff;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #222;
+}
+
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon i {
+  color: #dc4c18; /* brand accent color */
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon i {
+  transform: scale(1.3) rotate(5deg);
+}
+
+.feature-card h5 {
+  color: #222;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 767px) {
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .feature-card {
+    margin: 0 auto;
+    max-width: 300px;
+  }
+}

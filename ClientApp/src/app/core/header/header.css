@@ -1,0 +1,115 @@
+/* 🌆 Base Navbar Styles */
+.navbar {
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease-in-out;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+/* ============================= */
+/* 🔹 Logo Styling               */
+/* ============================= */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  height: 60px; /* fixed navbar height */
+}
+
+/* This grows the logo visually without enlarging the navbar box */
+.navbar-brand .logo {
+  height: 140px;         /* ⬆️ actual image size — bigger */
+  width: auto;
+  transform: scale(1.15); /* subtly enlarge without affecting layout flow */
+  transform-origin: center;
+  margin-top: -8px;       /* move up slightly to center vertically */
+  margin-bottom: -8px;    /* keeps visual balance */
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand .logo:hover {
+  transform: scale(1.2);
+}
+
+
+/* ============================= */
+/* Responsive Adjustments        */
+/* ============================= */
+@media (max-width: 768px) {
+  .navbar-brand .logo {
+    height: 65px;
+    transform: scale(1.1);
+  }
+  .navbar-brand .brand-text {
+    font-size: 1.25rem;
+  }
+}
+
+
+/* 🌐 Nav Links */
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333 !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #dc4c18 !important;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 6px;
+  font-weight: 500;
+  background-color: transparent;
+  color: black;
+  border-color: #dc4c18 !important;
+  transition: all .3s ease-in;
+}
+
+.btn:hover{
+  background-color:#dc4c18 !important;
+  color: white;
+}
+
+/* 📱 Mobile / Tablet Responsive */
+@media (max-width: 992px) {
+  .navbar-brand .logo {
+    height: 50px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-brand .logo {
+    height: 45px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.15rem; /* ✅ readable on mobile */
+    padding: 10px 0;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 8px 18px;
+  }
+}
+
+/* ✨ Sticky Blur Effect */
+.bg-light-custom {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}

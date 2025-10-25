@@ -36,17 +36,27 @@ namespace Api.Controllers
         }
 
         [HttpPost("login")]
-        public async  Task<ActionResult<UserDto>> Login(LoginDto model)
+        public async Task<ActionResult<UserDto>> Login(LoginDto model)
         {
-            var user = await _userManager.FindByNameAsync(model.UserName);
-            if (user == null) return Unauthorized("invalid user or password");
-            if (user.EmailConfirmed == false) return Unauthorized("please comfirm your email");
+            // Find user by email instead of username
+            var user = await _userManager.FindByEmailAsync(model.Email);
 
+            if (user == null)
+                return Unauthorized("Invalid email or password.");
+
+            if (!user.EmailConfirmed)
+                return Unauthorized("Please confirm your email before logging in.");
+
+            // Verify password
             var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
-            if (!result.Succeeded) return Unauthorized("Invalid user name or password");
 
+            if (!result.Succeeded)
+                return Unauthorized("Invalid email or password.");
+
+            // Create and return a user DTO (e.g., including JWT or profile info)
             return CreateApplicationUserDto(user);
         }
+
 
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto model)
@@ -68,7 +78,7 @@ namespace Api.Controllers
             var result = await _userManager.CreateAsync(userToAdd, model.Password);
             if (!result.Succeeded) return BadRequest(result.Errors);
 
-            return Ok("Your account as been created, you can login");
+            return Ok(new JsonResult(new {title= "Account Created", message= "your account has been created, you can login"}));
         }
 
         #region Private Helper Methods

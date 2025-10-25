@@ -1,0 +1,38 @@
+.newsletter-section {
+  background: url('/assets/images/news-bg.jpg') center/cover no-repeat;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+}
+
+.newsletter-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.newsletter-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.newsletter-form input {
+  width: 100%;
+  max-width: 400px;
+}
+
+.newsletter-form button {
+  white-space: nowrap;
+}
+
+.text-success {
+  color: #c5ffcb !important;
+}
+
+.text-danger {
+  color: #ffb3b3 !important;
+}

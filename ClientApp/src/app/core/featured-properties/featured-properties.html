@@ -1,0 +1,69 @@
+<section class="featured-lands-section position-relative py-5">
+  <!-- Map background overlay -->
+  <div class="map-bg"></div>
+
+  <div class="container position-relative">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold display-6 text-light mb-3">Featured Lands for Sale</h2>
+      <p class="text-light opacity-75 fs-5">
+        Discover investment-ready plots in rapidly developing areas across Nigeria.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div
+        class="col-md-6 col-lg-4 col-xl-3"
+        *ngFor="let land of properties"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div class="land-card position-relative rounded-4 overflow-hidden shadow-lg">
+          <div class="land-image">
+            <img [src]="land.img" [alt]="land.title" class="img-fluid w-100" />
+            <div class="overlay-gradient"></div>
+
+            <span
+              class="badge position-absolute top-0 start-0 m-3 px-3 py-2 fw-semibold"
+              [ngClass]="{
+                'bg-success': land.tag === 'Verified',
+                'bg-warning text-dark': land.tag === 'Hot Deal',
+                'bg-primary': land.tag === 'Buy & Build',
+                'bg-secondary': !land.tag
+              }"
+            >
+              {{ land.tag || 'Featured' }}
+            </span>
+
+            <div class="price-tag position-absolute bottom-0 start-0 w-100 px-3 py-2 text-white fw-bold">
+              {{ land.price }}
+            </div>
+          </div>
+
+          <div class="land-body p-4 bg-white">
+            <h5 class="fw-semibold mb-2 text-dark text-truncate">
+              {{ land.title }}
+            </h5>
+
+            <p class="text-muted small mb-3">
+              <i class="bi bi-geo-alt-fill text-primary me-1"></i>{{ land.location }}
+            </p>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-muted small">
+                <i class="bi bi-rulers me-1"></i>{{ land.size }}
+              </span>
+
+              <a href="#" class="text-primary fw-semibold small">
+                <i class="bi bi-map me-1"></i>View on Map
+              </a>
+            </div>
+
+            <button class="btn btn-primary w-100 rounded-pill fw-semibold">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

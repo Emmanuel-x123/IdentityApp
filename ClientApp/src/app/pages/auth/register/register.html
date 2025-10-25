@@ -1,0 +1,156 @@
+<div class="register-container d-flex align-items-center justify-content-center min-vh-100 bg-light">
+  <div
+    class="register-card shadow-lg p-4 p-md-5 rounded-4 bg-white border-0"
+    style="max-width: 480px; width: 100%;"
+  >
+    <div class="text-center mb-4">
+      <img src="/assets/images/CEPHA-LOGO.png" alt="Logo" width="90" class="mb-3" />
+      <h4 class="text-primary fw-bold">Create an Account</h4>
+      <p class="text-muted">Fill in your details to get started</p>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off" novalidate>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label fw-semibold">First Name</label>
+          <input
+            formControlName="firstName"
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Enter first name"
+            [class.is-invalid]="submited && registerForm.get('firstName')?.errors"
+          />
+
+          @if (submited && registerForm.get('firstName')?.hasError('required')) {
+            <div class="invalid-feedback d-block">First name is required!</div>
+          }
+
+          @if (
+            submited &&
+            (registerForm.get('firstName')?.hasError('minlength') ||
+              registerForm.get('firstName')?.hasError('maxlength'))
+          ) {
+            <div class="invalid-feedback d-block">
+              First name must be between 3 and 15 characters.
+            </div>
+          }
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label fw-semibold">Last Name</label>
+          <input
+            formControlName="lastName"
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Enter last name"
+            [class.is-invalid]="submited && registerForm.get('lastName')?.errors"
+          />
+
+          @if (submited && registerForm.get('lastName')?.hasError('required')) {
+            <div class="invalid-feedback d-block">Last name is required!</div>
+          }
+
+          @if (
+            submited &&
+            (registerForm.get('lastName')?.hasError('minlength') ||
+              registerForm.get('lastName')?.hasError('maxlength'))
+          ) {
+            <div class="invalid-feedback d-block">
+              Last name must be between 3 and 15 characters.
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-semibold">Email</label>
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control form-control-lg"
+          placeholder="Enter email address"
+          [class.is-invalid]="submited && registerForm.get('email')?.errors"
+        />
+
+        @if (submited && registerForm.get('email')?.hasError('required')) {
+          <div class="invalid-feedback d-block">Email is required!</div>
+        }
+
+        @if (submited && registerForm.get('email')?.hasError('pattern')) {
+          <div class="invalid-feedback d-block">Invalid email format!</div>
+        }
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Password</label>
+        <div class="input-group input-group-lg">
+          <input
+            formControlName="password"
+            [type]="showPassword ? 'text' : 'password'"
+            class="form-control"
+            placeholder="Enter password"
+            [class.is-invalid]="submited && registerForm.get('password')?.errors"
+          />
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            (click)="togglePassword()"
+          >
+            <i [class]="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+          </button>
+        </div>
+
+        @if (submited && registerForm.get('password')?.hasError('required')) {
+          <div class="invalid-feedback d-block">Password is required!</div>
+        }
+
+        @if (
+          submited &&
+          (registerForm.get('password')?.hasError('minlength') ||
+            registerForm.get('password')?.hasError('maxlength'))
+        ) {
+          <div class="invalid-feedback d-block">
+            Password must be at least 10 characters, include uppercase, lowercase,
+            number, and a special character.
+          </div>
+        }
+      </div>
+
+      @if (errorMessages.length > 0) {
+        <div class="form-floating">
+          <app-validation-message [errorMessages]="errorMessages"></app-validation-message>
+        </div>
+      }
+
+      @if (showNotification) {
+       <app-notification
+         [title]="notificationTitle"
+         [message]="notificationMessage"
+        [isSuccess]="notificationSuccess"
+       (closed)="onNotificationClosed()"
+     ></app-notification>
+    }
+
+
+      <div class="d-grid">
+        <button
+          type="submit"
+          class="btn btn-primary btn-lg shadow-sm fw-semibold"
+        >
+          Create Account
+        </button>
+      </div>
+
+      <div class="text-center mt-4">
+        <p class="text-muted mb-0">
+          Already have an account?
+          <a
+            routerLink="/account/login"
+            class="text-primary fw-semibold text-decoration-none"
+            >Login</a
+          >
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

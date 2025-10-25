@@ -1,0 +1,15 @@
+<div class="testimonial-card text-center">
+  <div class="stars mb-3">
+    <ng-container *ngFor="let s of [].constructor(stars)">
+      <i class="bi bi-star-fill"></i>
+    </ng-container>
+  </div>
+
+  <p class="testimonial-text">“{{ feedback }}”</p>
+
+  <div class="testimonial-author mt-4">
+    <img [src]="image" [alt]="name" />
+    <h6 class="mt-2 mb-0">{{ name }}</h6>
+    <span class="text-muted small">{{ role }}</span>
+  </div>
+</div>

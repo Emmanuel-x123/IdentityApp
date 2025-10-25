@@ -1,0 +1,35 @@
+<!-- 🌆 Header / Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light-custom shadow-sm" id="mainNavbar">
+  <div class="container">
+    <!-- Brand -->
+<a class="navbar-brand d-flex align-items-center fw-bold text-primary" routerLink="/">
+  <img src="assets/images/CEPHA-LOGO.png" alt="Logo" class="logo me-2" />
+</a>
+
+    <!-- Mobile Toggle -->
+    <button
+      class="navbar-toggler border-0"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Nav Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" routerLink="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/properties">Properties</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/agents">Agents</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
+        <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+          <button class="btn btn-primary px-3 py-2" routerLink="/account/login">Login</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

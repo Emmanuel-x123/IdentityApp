@@ -1,0 +1,78 @@
+<div class="login-container d-flex align-items-center justify-content-center min-vh-100 bg-light">
+  <div class="login-card shadow-lg p-4 p-md-5 rounded-4 bg-white border-0" style="max-width: 420px; width: 100%;">
+    <div class="text-center mb-4">
+      <img src="/assets/images/CEPHA-LOGO.png" alt="Logo" width="90" class="mb-3" />
+      <h4 class="text-primary fw-bold">Welcome Back</h4>
+      <p class="text-muted">Log in to continue to your account</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off" novalidate>
+      <div class="mb-3">
+        <label class="form-label fw-semibold">Email</label>
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control form-control-lg"
+          placeholder="Enter your email"
+          [class.is-invalid]="submitted && loginForm.get('email')?.errors"
+        />
+        <div class="invalid-feedback d-block" *ngIf="submitted && loginForm.get('email')?.hasError('required')">
+          Email is required!
+        </div>
+        <div class="invalid-feedback d-block" *ngIf="submitted && loginForm.get('email')?.hasError('pattern')">
+          Invalid email format!
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Password</label>
+        <div class="input-group input-group-lg">
+          <input
+            formControlName="password"
+            [type]="showPassword ? 'text' : 'password'"
+            class="form-control"
+            placeholder="Enter your password"
+            [class.is-invalid]="submitted && loginForm.get('password')?.errors"
+          />
+          <button type="button" class="btn btn-outline-secondary" (click)="togglePassword()">
+            <i [class]="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+          </button>
+        </div>
+        <div class="invalid-feedback d-block" *ngIf="submitted && loginForm.get('password')?.hasError('required')">
+          Password is required!
+        </div>
+        <div class="invalid-feedback d-block" *ngIf="submitted && loginForm.get('password')?.hasError('minlength')">
+          Password must be at least 6 characters.
+        </div>
+      </div>
+
+      @if (errorMessages && errorMessages.length > 0) {
+        <div class="form-floating">
+          <app-validation-message [errorMessages]="errorMessages"></app-validation-message>
+        </div>
+      }
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-lg shadow-sm fw-semibold">
+          Login
+        </button>
+      </div>
+
+      <div class="text-center mt-4">
+        <p class="text-muted mb-0">
+          Don’t have an account?
+          <a routerLink="/account/register" class="text-primary fw-semibold text-decoration-none">Register</a>
+        </p>
+      </div>
+    </form>
+
+    @if (showNotification) {
+      <app-notification
+        [title]="notificationTitle"
+        [message]="notificationMessage"
+        [isSuccess]="notificationSuccess"
+        (closed)="onNotificationClosed()"
+      ></app-notification>
+    }
+  </div>
+</div>

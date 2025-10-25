@@ -1,0 +1,29 @@
+<section class="newsletter-section py-5 text-center text-white position-relative">
+  <div class="overlay"></div>
+
+  <div class="container position-relative z-2">
+    <h2 class="fw-bold mb-3">Stay Updated on Land Opportunities</h2>
+    <p class="mb-4 lead">
+      Get the latest plots, estate deals, and investment insights directly in your inbox.
+    </p>
+
+    <form class="newsletter-form mx-auto d-flex flex-column flex-md-row gap-2 justify-content-center align-items-center" (ngSubmit)="subscribe()">
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        class="form-control form-control-lg rounded-pill px-4"
+        placeholder="Enter your email address"
+        required
+      />
+
+      <button type="submit" class="btn btn-warning btn-lg rounded-pill px-4">
+        Subscribe
+      </button>
+    </form>
+
+    <p *ngIf="message" [ngClass]="{ 'text-success': subscribed, 'text-danger': !subscribed }" class="mt-3 fw-semibold">
+      {{ message }}
+    </p>
+  </div>
+</section>

@@ -1,0 +1,89 @@
+/* ============================= */
+/* 🔹 HERO SECTION STYLES        */
+/* ============================= */
+
+.hero {
+  position: relative;
+   height: 90vh;
+  min-height: 600px; /* Minimum height */
+  max-height: 1200px;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url("/assets/images/hero-bgg.jpg") center/cover no-repeat;
+  overflow: hidden;
+}
+
+/* Content container */
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Headline animations */
+.animate-fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+.animate-slide-up {
+  animation: slideUp 1.2s ease forwards;
+}
+.animate-fade-delay {
+  animation: fadeIn 1.5s ease forwards;
+}
+.animate-fade-delay2 {
+  animation: fadeIn 2s ease forwards;
+}
+
+.text-primary{
+  color:#dc4c18 !important ;
+}
+
+.btn-2{
+  background-color: #dc4c18 !important;
+  border: none;
+}
+
+.btn-2:hover{
+  background-color: #ad3408 !important;
+}
+
+/* ============================= */
+/* 🔹 Animations                 */
+/* ============================= */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================= */
+/* 🔹 Responsive Design          */
+/* ============================= */
+@media (max-width: 768px) {
+  .hero {
+    height: 75vh;
+    background-position: top center;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+}

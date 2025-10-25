@@ -1,0 +1,35 @@
+.footer-section {
+  background-color: #111;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.footer-section h5,
+.footer-section h6 {
+  letter-spacing: 0.5px;
+}
+
+.footer-link {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #ffc107;
+}
+
+.social-icon {
+  color: #ccc;
+  font-size: 1.4rem;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.social-icon:hover {
+  color: #ffc107;
+  transform: translateY(-3px);
+}
+
+hr {
+  opacity: 0.2;
+}

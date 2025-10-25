@@ -1,0 +1,23 @@
+<section class="testimonials-section py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">What Our Clients Say</h2>
+    <p class="text-muted mb-5">
+      Hear from land buyers and investors who trust our platform
+    </p>
+
+    <div class="testimonial-wrapper d-flex flex-nowrap overflow-auto gap-4 px-2">
+      <div
+        class="testimonial-slide flex-shrink-0 animate-on-scroll"
+        *ngFor="let t of testimonials"
+      >
+        <app-testimonial-card
+          [name]="t.name"
+          [role]="t.role"
+          [image]="t.image"
+          [stars]="t.stars"
+          [feedback]="t.feedback"
+        ></app-testimonial-card>
+      </div>
+    </div>
+  </div>
+</section>

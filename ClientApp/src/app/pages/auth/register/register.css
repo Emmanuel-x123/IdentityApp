@@ -1,0 +1,50 @@
+.register-container {
+  background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+  padding: 20px;
+}
+
+.register-card {
+  transition: all 0.3s ease;
+}
+
+.register-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.form-control {
+  border-radius: 10px;
+  padding: 12px 15px;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.btn-primary {
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0066ff, #004de6);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #004de6, #003bb5);
+}
+
+.invalid-feedback {
+  font-size: 0.85rem;
+}
+
+.text-primary {
+  color: #004de6 !important;
+}
+
+input::placeholder {
+  color: #aaa;
+  font-size: 0.9rem;
+}

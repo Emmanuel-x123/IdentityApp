@@ -1,0 +1,42 @@
+.login-section {
+  background: linear-gradient(to bottom right, #f5f7fa, #e6ecf3);
+  min-height: 100vh;
+}
+
+.login-logo {
+  width: 80px;
+  height: auto;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.btn-primary {
+  background: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #0069d9;
+}
+
+.input-group .btn {
+  border-left: none;
+}
+
+@media (max-width: 576px) {
+  .card {
+    padding: 1.5rem;
+  }
+  .login-logo {
+    width: 65px;
+  }
+}

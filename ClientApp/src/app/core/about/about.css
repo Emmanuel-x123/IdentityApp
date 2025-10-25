@@ -1,0 +1,111 @@
+.about-section {
+  position: relative;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  overflow: hidden;
+  padding: 5rem 0;
+}
+
+/* Optional abstract shapes / waves */
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 400px;
+  height: 400px;
+  background: rgba(220, 76, 24, 0.05);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.about-section::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 500px;
+  height: 500px;
+  background: rgba(220, 76, 24, 0.07);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.about-section .container {
+  position: relative;
+  z-index: 1; /* Ensure content is above background shapes */
+}
+
+/* Other styles remain the same */
+.about-section h2 {
+  font-size: 2rem;
+  color: #222;
+}
+
+.about-section p {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.about-image img {
+  transition: transform 0.5s ease;
+  border-radius: 0.5rem;
+}
+
+.about-image:hover img {
+  transform: scale(1.05);
+}
+
+.about-values li {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-values i {
+  color: #dc4c18;
+}
+
+.timeline-section {
+  margin-top: 3rem;
+}
+
+.me-2{
+  color: #dc4c18 !important;
+}
+
+.btn-primary{
+  background-color: transparent !important;
+  color: #dc4c18;
+  border-color: #dc4c18;
+}
+
+.timeline-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: #fff;
+}
+
+.timeline-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.timeline-icon {
+  font-size: 2.5rem;
+  color: #dc4c18;
+  transition: transform 0.4s ease;
+}
+
+.timeline-card:hover .timeline-icon {
+  transform: scale(1.2);
+}
+
+@media (max-width: 767px) {
+  .about-section h2 {
+    font-size: 1.75rem;
+  }
+  .about-values li {
+    font-size: 0.9rem;
+  }
+  .timeline-icon {
+    font-size: 2rem;
+  }
+}
